@@ -1,4 +1,4 @@
-import Todo from './Components/Todo/Todo'
+import Todo from './components/Todo/Todo'
 
 import './App.css'
 

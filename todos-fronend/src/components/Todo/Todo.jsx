@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { fetchTodos } from '../../data/todos'
+import { fetchTodos, addTodo, updateTodo, deleteTodo } from '../../data/todos'
 
 // SVG icon components (small, inline, use currentColor)
 const PlusIcon = ({ className = 'w-4 h-4' }) => (
@@ -37,25 +37,47 @@ const TrashIcon = ({ className = 'w-4 h-4' }) => (
 function Todo() {
   const [todos, setTodos] = useState([])
 
-  useEffect(() => setTodos(fetchTodos()), [])
+  useEffect(() => {
+    fetchTodos().then(data => setTodos(data)).catch(err => console.error(err))
+  }, [])
+
+  // Auto-refresh every 2 seconds to sync with backend changes
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetchTodos().then(data => setTodos(data)).catch(err => console.error(err))
+    }, 2000)
+    
+    return () => clearInterval(interval)
+  }, [])
 
   // event handlers
-  const deleteClick = (id) => setTodos(todos.filter((todo) => todo.id !== id))
-
-  const waitingClick = (id) => {
-    const todoSelected = todos.find((todo) => todo.id === id)
-    todoSelected.completed = true
-    setTodos([...todos])
+  const deleteClick = async (id) => {
+    try {
+      await deleteTodo(id)
+      setTodos(todos.filter((todo) => todo.id !== id))
+    } catch (err) {
+      console.error('Failed to delete todo:', err)
+    }
   }
 
-  const addClick = (title) => {
-    const newItem = {
-      id: todos.reduce((p, t) => (t.id > p ? t.id : p), 0) + 1,
-      title,
-      completed: false,
-      userId: 1,
+  const waitingClick = async (id) => {
+    try {
+      const todoSelected = todos.find((todo) => todo.id === id)
+      await updateTodo(id, { completed: true })
+      todoSelected.completed = true
+      setTodos([...todos])
+    } catch (err) {
+      console.error('Failed to update todo:', err)
     }
-    setTodos([...todos, newItem])
+  }
+
+  const addClick = async (title) => {
+    try {
+      const newItem = await addTodo({ title })
+      setTodos([...todos, newItem])
+    } catch (err) {
+      console.error('Failed to add todo:', err)
+    }
   }
 
   // modal handlers
