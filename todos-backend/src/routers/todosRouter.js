@@ -12,8 +12,8 @@ todosRouter.post('/', (req, res) => {
         return res.status(400).send('Title is required');
     };
     // process
-    const calculateId = todos.reduce((pre, cur) => (pre > cur.id ? pre : cur.id), -1) + 1;
-    const calculateUserId = todos.reduce((pre, cur) => (pre > cur.userId ? pre : cur.userId), -1) + 1;
+    const calculateId = todos.reduce((pre, cur) => (pre > cur.id ? pre : cur.id), 0) + 1;
+    const calculateUserId = todos.reduce((pre, cur) => (pre > cur.userId ? pre : cur.userId), 0) + 1;
     const newTodo = {
         userId: calculateUserId,
         id: calculateId,

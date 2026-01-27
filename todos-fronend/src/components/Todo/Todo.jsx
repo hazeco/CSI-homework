@@ -113,7 +113,21 @@ function Todo() {
                 className="w-full border-2 border-slate-200 rounded-lg px-4 py-3 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all text-base" 
                 type="text" 
                 placeholder="Enter your todo..."
-                autoFocus 
+                autoFocus
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    const title = newTitleRef.current.value.trim()
+                    if (title === '') {
+                      alert('Title cannot be empty')
+                      newTitleRef.current.value = ''
+                      newTitleRef.current.focus()
+                    } else {
+                      addClick(title)
+                      newTitleRef.current.value = ''
+                      handleClose()
+                    }
+                  }
+                }}
               />
             </div>
             <div className="flex justify-end gap-3">
@@ -159,8 +173,15 @@ function Todo() {
             <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <PlusIcon className="w-8 h-8 text-slate-400" />
             </div>
-            <p className="text-slate-500 text-lg font-medium">No todos yet</p>
+            <p className="text-red-500 text-lg font-medium">No todos yet</p>
             <p className="text-slate-400 text-sm mt-1">Create your first one to get started</p>
+            <button 
+              className="mt-6 inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 active:scale-95 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-200 cursor-pointer" 
+              onClick={handleShow}
+            >
+              <PlusIcon className="w-4 h-4" />
+              Add Todo
+            </button>
           </div>
         ) : (
           <table className="w-full">
