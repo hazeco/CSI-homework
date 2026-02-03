@@ -1,0 +1,75 @@
+.chat-container {
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-image: url('../../assets/splash.png');
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.25);
+}
+
+.chat-display {
+  height: 12rem;
+  width: 30rem;
+  box-shadow: inset 0 0 0.25rem gray;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-size: large;
+  text-align: left;
+  background-color: rgb(250, 250, 250);
+  opacity: 0.8;
+  resize: none;
+  overflow: auto;
+}
+
+.chat-input {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name {
+  height: 1.5rem;
+  width: 5rem;
+  box-shadow: inset 0 0 0.25rem gray;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  background-color: rgb(250, 250, 220);
+  opacity: 0.8;
+  font-size: large;
+  font-weight: bold;
+  color: blue;
+}
+
+.message {
+  height: 1.5rem;
+  width: 17rem;
+  box-shadow: inset 0 0 0.25rem gray;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  background-color: rgb(250, 250, 220);
+  opacity: 0.8;
+  font-size: large;
+  color: blue;
+}
+
+.name::placeholder,
+.message::placeholder {
+  color: lightgray;
+}
+
+.send {
+  height: 2.5rem;
+  border: 1px solid black;
+  padding: 0.25rem 1.5rem;
+  color: white;
+  background-color: green;
+}
+
+.send:hover {
+  scale: 1.05;
+}
