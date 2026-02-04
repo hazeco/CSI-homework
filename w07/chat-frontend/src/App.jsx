@@ -1,10 +1,8 @@
 import Chat from './components/Chat/Chat'
 
-import './App.css'
-
 function App() {
   return (
-    <div className='app-container'>
+    <div className='w-screen h-screen overflow-hidden'>
       <Chat />
     </div>
   )
