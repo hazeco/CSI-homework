@@ -1,0 +1,153 @@
+[2026-02-09T08:12:31.652Z] {"event":"server_listening","clients":0}
+[2026-02-09T08:12:45.322Z] {"event":"client_connected","clients":1,"ip":"::1"}
+[2026-02-09T08:12:45.325Z] {"id":"Client1-1770624765323","clientId":"Client1","name":"Client1","message":"Client1 joined the chat","timestamp":"2026-02-09T08:12:45.323Z","isSystemMessage":true}
+[2026-02-09T08:12:47.068Z] {"event":"client_disconnected","clients":0}
+[2026-02-09T08:12:47.126Z] {"event":"client_connected","clients":1,"ip":"::1"}
+[2026-02-09T08:12:47.140Z] {"id":"Client2-1770624767140","clientId":"Client2","name":"Client2","message":"Client2 joined the chat","timestamp":"2026-02-09T08:12:47.140Z","isSystemMessage":true}
+[2026-02-09T08:12:50.908Z] {"event":"client_disconnected","clients":0}
+[2026-02-09T08:12:50.954Z] {"event":"client_connected","clients":1,"ip":"::1"}
+[2026-02-09T08:12:50.965Z] {"id":"Client3-1770624770964","clientId":"Client3","name":"Client3","message":"Client3 joined the chat","timestamp":"2026-02-09T08:12:50.964Z","isSystemMessage":true}
+[2026-02-09T08:12:51.356Z] {"event":"client_disconnected","clients":0}
+[2026-02-09T08:12:51.401Z] {"event":"client_connected","clients":1,"ip":"::1"}
+[2026-02-09T08:12:51.410Z] {"id":"Client4-1770624771410","clientId":"Client4","name":"Client4","message":"Client4 joined the chat","timestamp":"2026-02-09T08:12:51.410Z","isSystemMessage":true}
+[2026-02-09T08:13:50.675Z] {"event":"client_disconnected","clients":0}
+[2026-02-09T08:13:50.812Z] {"event":"client_connected","clients":1,"ip":"::1"}
+[2026-02-09T08:13:50.831Z] {"id":"Client1-1770624830830","clientId":"Client1","name":"Client1","message":"Client1 joined the chat","timestamp":"2026-02-09T08:13:50.830Z","isSystemMessage":true}
+[2026-02-09T08:15:06.577Z] {"event":"client_disconnected","clients":0}
+[2026-02-09T08:15:06.578Z] {"event":"client_connected","clients":1,"ip":"::1"}
+[2026-02-09T08:15:06.582Z] {"id":"Client1-1770624906582","clientId":"Client1","name":"Client1","message":"Client1 joined the chat","timestamp":"2026-02-09T08:15:06.582Z","isSystemMessage":true}
+[2026-02-09T08:15:07.576Z] {"event":"client_disconnected","clients":0}
+[2026-02-09T08:15:07.581Z] {"event":"client_connected","clients":1,"ip":"::1"}
+[2026-02-09T08:15:07.586Z] {"id":"Client1770624907570-y2p4j4kmt-1770624907585","clientId":"Client1770624907570-y2p4j4kmt","name":"Client1770624907570-y2p4j4kmt","message":"Client1770624907570-y2p4j4kmt joined the chat","timestamp":"2026-02-09T08:15:07.585Z","isSystemMessage":true}
+[2026-02-09T08:15:21.041Z] {"event":"client_disconnected","clients":0}
+[2026-02-09T08:15:21.179Z] {"event":"client_connected","clients":1,"ip":"::1"}
+[2026-02-09T08:15:21.201Z] {"id":"Client1770624921174-mc0w8fscu-1770624921200","clientId":"Client1770624921174-mc0w8fscu","name":"Client1770624921174-mc0w8fscu","message":"Client1770624921174-mc0w8fscu joined the chat","timestamp":"2026-02-09T08:15:21.200Z","isSystemMessage":true}
+[2026-02-09T08:15:26.503Z] {"event":"client_disconnected","clients":0}
+[2026-02-09T08:15:26.638Z] {"event":"client_connected","clients":1,"ip":"::1"}
+[2026-02-09T08:15:26.659Z] {"id":"Client1770624926634-hznoo78fj-1770624926656","clientId":"Client1770624926634-hznoo78fj","name":"Client1770624926634-hznoo78fj","message":"Client1770624926634-hznoo78fj joined the chat","timestamp":"2026-02-09T08:15:26.656Z","isSystemMessage":true}
+[2026-02-09T08:15:26.907Z] {"event":"client_disconnected","clients":0}
+[2026-02-09T08:15:27.044Z] {"event":"client_connected","clients":1,"ip":"::1"}
+[2026-02-09T08:15:27.064Z] {"id":"Client1770624927039-m0l7cveqz-1770624927063","clientId":"Client1770624927039-m0l7cveqz","name":"Client1770624927039-m0l7cveqz","message":"Client1770624927039-m0l7cveqz joined the chat","timestamp":"2026-02-09T08:15:27.063Z","isSystemMessage":true}
+[2026-02-09T08:15:27.448Z] {"event":"client_disconnected","clients":0}
+[2026-02-09T08:15:27.574Z] {"event":"client_connected","clients":1,"ip":"::1"}
+[2026-02-09T08:15:27.594Z] {"id":"Client1770624927570-7rn2yaypn-1770624927593","clientId":"Client1770624927570-7rn2yaypn","name":"Client1770624927570-7rn2yaypn","message":"Client1770624927570-7rn2yaypn joined the chat","timestamp":"2026-02-09T08:15:27.593Z","isSystemMessage":true}
+[2026-02-09T08:15:28.121Z] {"event":"client_disconnected","clients":0}
+[2026-02-09T08:15:28.249Z] {"event":"client_connected","clients":1,"ip":"::1"}
+[2026-02-09T08:15:28.266Z] {"id":"Client1770624928245-ri3g1r03b-1770624928266","clientId":"Client1770624928245-ri3g1r03b","name":"Client1770624928245-ri3g1r03b","message":"Client1770624928245-ri3g1r03b joined the chat","timestamp":"2026-02-09T08:15:28.266Z","isSystemMessage":true}
+[2026-02-09T08:15:41.360Z] {"event":"client_connected","clients":2,"ip":"::1"}
+[2026-02-09T08:15:41.364Z] {"id":"Client1770624941302-qmep58ucr-1770624941363","clientId":"Client1770624941302-qmep58ucr","name":"Client1770624941302-qmep58ucr","message":"Client1770624941302-qmep58ucr joined the chat","timestamp":"2026-02-09T08:15:41.363Z","isSystemMessage":true}
+[2026-02-09T08:15:45.272Z] {"id":"Client1770624928245-ri3g1r03b-1770624945272","clientId":"Client1770624928245-ri3g1r03b","name":"Client1770624928245-ri3g1r03b","message":"nnn","timestamp":"2026-02-09T08:15:45.272Z","isSystemMessage":false}
+[2026-02-09T08:16:13.582Z] {"event":"client_connected","clients":3,"ip":"::1"}
+[2026-02-09T08:16:13.583Z] {"event":"client_disconnected","clients":2}
+[2026-02-09T08:16:13.585Z] {"event":"client_disconnected","clients":1}
+[2026-02-09T08:16:13.587Z] {"id":"Client1770624941302-qmep58ucr-1770624973586","clientId":"Client1770624941302-qmep58ucr","name":"Client1770624941302-qmep58ucr","message":"Client1770624941302-qmep58ucr joined the chat","timestamp":"2026-02-09T08:16:13.586Z","isSystemMessage":true}
+[2026-02-09T08:16:13.606Z] {"event":"client_connected","clients":2,"ip":"::1"}
+[2026-02-09T08:16:13.608Z] {"id":"Client1770624928245-ri3g1r03b-1770624973608","clientId":"Client1770624928245-ri3g1r03b","name":"Client1770624928245-ri3g1r03b","message":"Client1770624928245-ri3g1r03b joined the chat","timestamp":"2026-02-09T08:16:13.608Z","isSystemMessage":true}
+[2026-02-09T08:16:28.077Z] {"event":"client_disconnected","clients":1}
+[2026-02-09T08:16:29.065Z] {"event":"client_disconnected","clients":0}
+[2026-02-09T08:16:29.125Z] {"event":"client_connected","clients":1,"ip":"::1"}
+[2026-02-09T08:16:29.141Z] {"id":"Client1-1770624989139","clientId":"Client1","name":"Client1","message":"Client1 joined the chat","timestamp":"2026-02-09T08:16:29.139Z","isSystemMessage":true}
+[2026-02-09T08:16:32.519Z] {"event":"client_connected","clients":2,"ip":"::1"}
+[2026-02-09T08:16:32.523Z] {"id":"Client1-1770624992522","clientId":"Client1","name":"Client1","message":"Client1 joined the chat","timestamp":"2026-02-09T08:16:32.522Z","isSystemMessage":true}
+[2026-02-09T08:16:34.298Z] {"event":"client_disconnected","clients":1}
+[2026-02-09T08:16:34.360Z] {"event":"client_connected","clients":2,"ip":"::1"}
+[2026-02-09T08:16:34.374Z] {"id":"Client1-1770624994374","clientId":"Client1","name":"Client1","message":"Client1 joined the chat","timestamp":"2026-02-09T08:16:34.374Z","isSystemMessage":true}
+[2026-02-09T08:16:38.167Z] {"id":"Client1-1770624998167","clientId":"Client1","name":"Client1","message":",,,,","timestamp":"2026-02-09T08:16:38.167Z","isSystemMessage":false}
+[2026-02-09T08:16:40.284Z] {"event":"client_disconnected","clients":1}
+[2026-02-09T08:16:40.331Z] {"event":"client_connected","clients":2,"ip":"::1"}
+[2026-02-09T08:16:40.343Z] {"id":"Client1-1770625000343","clientId":"Client1","name":"Client1","message":"Client1 joined the chat","timestamp":"2026-02-09T08:16:40.343Z","isSystemMessage":true}
+[2026-02-09T08:16:40.771Z] {"event":"client_disconnected","clients":1}
+[2026-02-09T08:16:40.814Z] {"event":"client_connected","clients":2,"ip":"::1"}
+[2026-02-09T08:16:40.824Z] {"id":"Client1-1770625000824","clientId":"Client1","name":"Client1","message":"Client1 joined the chat","timestamp":"2026-02-09T08:16:40.824Z","isSystemMessage":true}
+[2026-02-09T08:16:41.171Z] {"event":"client_disconnected","clients":1}
+[2026-02-09T08:16:41.215Z] {"event":"client_connected","clients":2,"ip":"::1"}
+[2026-02-09T08:16:41.226Z] {"id":"Client1-1770625001225","clientId":"Client1","name":"Client1","message":"Client1 joined the chat","timestamp":"2026-02-09T08:16:41.225Z","isSystemMessage":true}
+[2026-02-09T08:16:43.408Z] {"id":"Client1-1770625003407","clientId":"Client1","name":"Client1","message":",,,","timestamp":"2026-02-09T08:16:43.407Z","isSystemMessage":false}
+[2026-02-09T08:17:11.139Z] {"event":"client_disconnected","clients":1}
+[2026-02-09T08:17:12.625Z] {"event":"client_disconnected","clients":0}
+[2026-02-09T08:17:12.674Z] {"event":"client_connected","clients":1,"ip":"::1"}
+[2026-02-09T08:17:12.687Z] {"id":"Client1-1770625032687","clientId":"Client1","name":"Client1","message":"Client1 joined the chat","timestamp":"2026-02-09T08:17:12.687Z","isSystemMessage":true}
+[2026-02-09T08:17:15.358Z] {"event":"client_connected","clients":2,"ip":"::1"}
+[2026-02-09T08:17:15.362Z] {"id":"Client1-1770625035360","clientId":"Client1","name":"Client1","message":"Client1 joined the chat","timestamp":"2026-02-09T08:17:15.360Z","isSystemMessage":true}
+[2026-02-09T08:17:18.679Z] {"id":"Client1-1770625038679","clientId":"Client1","name":"Client1","message":"กดกด","timestamp":"2026-02-09T08:17:18.679Z","isSystemMessage":false}
+[2026-02-09T08:18:05.386Z] {"event":"server_listening","clients":0}
+[2026-02-09T08:18:09.592Z] {"event":"client_connected","clientId":"Client1","clients":1,"ip":"::1"}
+[2026-02-09T08:18:09.596Z] {"id":"null-1770625089595","clientId":null,"name":null,"message":"null joined the chat","timestamp":"2026-02-09T08:18:09.595Z","isSystemMessage":true}
+[2026-02-09T08:18:09.608Z] {"event":"client_connected","clientId":"Client2","clients":2,"ip":"::1"}
+[2026-02-09T08:18:09.611Z] {"id":"null-1770625089610","clientId":null,"name":null,"message":"null joined the chat","timestamp":"2026-02-09T08:18:09.610Z","isSystemMessage":true}
+[2026-02-09T08:18:20.577Z] {"event":"client_connected","clientId":"Client3","clients":3,"ip":"::1"}
+[2026-02-09T08:18:20.581Z] {"event":"client_disconnected","clients":2}
+[2026-02-09T08:18:20.582Z] {"event":"client_disconnected","clients":1}
+[2026-02-09T08:18:20.599Z] {"event":"client_connected","clientId":"Client4","clients":2,"ip":"::1"}
+[2026-02-09T08:18:24.606Z] {"event":"client_disconnected","clients":1}
+[2026-02-09T08:18:26.005Z] {"event":"client_disconnected","clients":0}
+[2026-02-09T08:18:26.066Z] {"event":"client_connected","clientId":"Client5","clients":1,"ip":"::1"}
+[2026-02-09T08:18:26.878Z] {"event":"client_disconnected","clients":0}
+[2026-02-09T08:18:26.881Z] {"event":"client_connected","clientId":"Client6","clients":1,"ip":"::1"}
+[2026-02-09T08:18:26.885Z] {"id":"Client6-1770625106883","clientId":"Client6","name":"Client6","message":"Client6 joined the chat","timestamp":"2026-02-09T08:18:26.883Z","isSystemMessage":true}
+[2026-02-09T08:18:29.447Z] {"event":"client_disconnected","clients":0}
+[2026-02-09T08:18:29.493Z] {"event":"client_connected","clientId":"Client7","clients":1,"ip":"::1"}
+[2026-02-09T08:18:29.513Z] {"id":"Client7-1770625109513","clientId":"Client7","name":"Client7","message":"Client7 joined the chat","timestamp":"2026-02-09T08:18:29.513Z","isSystemMessage":true}
+[2026-02-09T08:18:38.738Z] {"event":"server_listening","clients":0}
+[2026-02-09T08:18:38.924Z] {"event":"client_connected","clientId":"Client1","clients":1,"ip":"::ffff:127.0.0.1"}
+[2026-02-09T08:18:38.929Z] {"id":"Client1-1770625118928","clientId":"Client1","name":"Client1","message":"Client1 joined the chat","timestamp":"2026-02-09T08:18:38.928Z","isSystemMessage":true}
+[2026-02-09T08:18:42.737Z] {"event":"client_connected","clientId":"Client2","clients":2,"ip":"::1"}
+[2026-02-09T08:18:42.741Z] {"event":"client_disconnected","clients":1}
+[2026-02-09T08:18:42.743Z] {"id":"Client2-1770625122741","clientId":"Client2","name":"Client2","message":"Client2 joined the chat","timestamp":"2026-02-09T08:18:42.741Z","isSystemMessage":true}
+[2026-02-09T08:18:46.578Z] {"event":"client_connected","clientId":"Client3","clients":2,"ip":"::1"}
+[2026-02-09T08:18:46.584Z] {"id":"Client3-1770625126583","clientId":"Client3","name":"Client3","message":"Client3 joined the chat","timestamp":"2026-02-09T08:18:46.583Z","isSystemMessage":true}
+[2026-02-09T08:18:51.957Z] {"event":"client_disconnected","clients":1}
+[2026-02-09T08:18:52.338Z] {"event":"client_disconnected","clients":0}
+[2026-02-09T08:19:01.528Z] {"event":"client_connected","clientId":"Client4","clients":1,"ip":"::1"}
+[2026-02-09T08:19:01.546Z] {"id":"Client4-1770625141545","clientId":"Client4","name":"Client4","message":"Client4 joined the chat","timestamp":"2026-02-09T08:19:01.545Z","isSystemMessage":true}
+[2026-02-09T08:19:03.949Z] {"event":"client_disconnected","clients":0}
+[2026-02-09T08:19:04.012Z] {"event":"client_connected","clientId":"Client5","clients":1,"ip":"::1"}
+[2026-02-09T08:19:04.027Z] {"id":"Client5-1770625144025","clientId":"Client5","name":"Client5","message":"Client5 joined the chat","timestamp":"2026-02-09T08:19:04.025Z","isSystemMessage":true}
+[2026-02-09T08:19:06.810Z] {"event":"client_disconnected","clients":0}
+[2026-02-09T08:19:13.746Z] {"event":"server_listening","clients":0}
+[2026-02-09T08:19:18.506Z] {"event":"client_connected","clientId":"Client1","clients":1,"ip":"::1"}
+[2026-02-09T08:19:18.518Z] {"id":"Client1-1770625158515","clientId":"Client1","name":"Client1","message":"Client1 joined the chat","timestamp":"2026-02-09T08:19:18.515Z","isSystemMessage":true}
+[2026-02-09T08:19:23.109Z] {"event":"client_connected","clientId":"Client2","clients":2,"ip":"::1"}
+[2026-02-09T08:19:23.125Z] {"id":"Client2-1770625163124","clientId":"Client2","name":"Client2","message":"Client2 joined the chat","timestamp":"2026-02-09T08:19:23.124Z","isSystemMessage":true}
+[2026-02-09T08:19:26.257Z] {"id":"Client1-1770625166256","clientId":"Client1","name":"Client1","message":"mmmm","timestamp":"2026-02-09T08:19:26.256Z","isSystemMessage":false}
+[2026-02-09T08:19:31.592Z] {"id":"Client2-1770625171591","clientId":"Client2","name":"Client2","message":"lll","timestamp":"2026-02-09T08:19:31.591Z","isSystemMessage":false}
+[2026-02-09T08:20:21.135Z] {"event":"client_connected","clientId":"Client3","clients":3,"ip":"::1"}
+[2026-02-09T08:20:21.142Z] {"event":"client_disconnected","clients":2}
+[2026-02-09T08:20:21.148Z] {"id":"Client3-1770625221140","clientId":"Client3","name":"Client3","message":"Client3 joined the chat","timestamp":"2026-02-09T08:20:21.140Z","isSystemMessage":true}
+[2026-02-09T08:20:21.582Z] {"event":"client_disconnected","clients":1}
+[2026-02-09T08:20:21.588Z] {"event":"client_connected","clientId":"Client4","clients":2,"ip":"::1"}
+[2026-02-09T08:20:21.602Z] {"id":"Client4-1770625221601","clientId":"Client4","name":"Client4","message":"Client4 joined the chat","timestamp":"2026-02-09T08:20:21.601Z","isSystemMessage":true}
+[2026-02-09T08:20:31.580Z] {"event":"client_disconnected","clients":1}
+[2026-02-09T08:20:31.583Z] {"event":"client_connected","clientId":"Client5","clients":2,"ip":"::1"}
+[2026-02-09T08:20:31.585Z] {"event":"client_disconnected","clients":1}
+[2026-02-09T08:20:31.599Z] {"id":"Client5-1770625231597","clientId":"Client5","name":"Client5","message":"Client5 joined the chat","timestamp":"2026-02-09T08:20:31.597Z","isSystemMessage":true}
+[2026-02-09T08:20:31.601Z] {"event":"client_connected","clientId":"Client6","clients":2,"ip":"::1"}
+[2026-02-09T08:20:31.606Z] {"id":"Client6-1770625231605","clientId":"Client6","name":"Client6","message":"Client6 joined the chat","timestamp":"2026-02-09T08:20:31.605Z","isSystemMessage":true}
+[2026-02-09T08:20:40.880Z] {"id":"Client6-1770625240878","clientId":"Client6","name":"Client6","message":"ิอือือื","timestamp":"2026-02-09T08:20:40.878Z","isSystemMessage":false}
+[2026-02-09T08:20:44.079Z] {"id":"Client5-1770625244079","clientId":"Client5","name":"Client5","message":"ิือืิอื","timestamp":"2026-02-09T08:20:44.079Z","isSystemMessage":false}
+[2026-02-09T08:20:47.971Z] {"event":"client_disconnected","clients":1}
+[2026-02-09T08:20:52.169Z] {"event":"client_disconnected","clients":0}
+[2026-02-09T08:20:52.232Z] {"event":"client_connected","clientId":"Client7","clients":1,"ip":"::1"}
+[2026-02-09T08:20:52.247Z] {"id":"Client7-1770625252246","clientId":"Client7","name":"Client7","message":"Client7 joined the chat","timestamp":"2026-02-09T08:20:52.246Z","isSystemMessage":true}
+[2026-02-09T08:21:00.563Z] {"event":"server_listening","clients":0}
+[2026-02-09T08:21:03.086Z] {"event":"client_connected","clientId":"Client1","clients":1,"ip":"::1"}
+[2026-02-09T08:21:03.108Z] {"id":"Client1-1770625263107","clientId":"Client1","name":"Client1","message":"Client1 joined the chat","timestamp":"2026-02-09T08:21:03.107Z","isSystemMessage":true}
+[2026-02-09T08:26:52.153Z] {"event":"server_listening","clients":0}
+[2026-02-09T08:26:52.593Z] {"event":"client_connected","clientId":"Client1","clients":1,"ip":"::1"}
+[2026-02-09T09:13:04.523Z] {"event":"client_connected","clientId":"Client2","clients":2,"ip":"::1"}
+[2026-02-09T09:13:04.571Z] {"id":"Client2-1770628384569","clientId":"Client2","name":"Client2","message":"Client2 joined the chat","timestamp":"2026-02-09T09:13:04.569Z","isSystemMessage":true}
+[2026-02-09T09:13:06.544Z] {"event":"client_disconnected","clients":1}
+[2026-02-09T09:13:15.139Z] {"event":"client_connected","clientId":"Client3","clients":2,"ip":"::1"}
+[2026-02-09T09:13:15.184Z] {"id":"Client3-1770628395184","clientId":"Client3","name":"Client3","message":"Client3 joined the chat","timestamp":"2026-02-09T09:13:15.184Z","isSystemMessage":true}
+[2026-02-09T09:13:18.123Z] {"event":"client_connected","clientId":"Client4","clients":3,"ip":"::1"}
+[2026-02-09T09:13:18.134Z] {"id":"Client4-1770628398132","clientId":"Client4","name":"Client4","message":"Client4 joined the chat","timestamp":"2026-02-09T09:13:18.132Z","isSystemMessage":true}
+[2026-02-09T09:13:21.254Z] {"id":"Client3-1770628401254","clientId":"Client3","name":"Client3","message":"DFSF","timestamp":"2026-02-09T09:13:21.254Z","isSystemMessage":false}
+[2026-02-09T09:13:26.892Z] {"event":"client_disconnected","clients":2}
+[2026-02-09T09:13:27.084Z] {"event":"client_disconnected","clients":1}
+[2026-02-09T09:13:29.022Z] {"event":"client_disconnected","clients":0}
+[2026-02-09T09:15:07.142Z] {"event":"client_connected","clientId":"Client5","clients":1,"ip":"::1"}
+[2026-02-09T09:15:07.151Z] {"id":"Client5-1770628507149","clientId":"Client5","name":"Client5","message":"Client5 joined the chat","timestamp":"2026-02-09T09:15:07.149Z","isSystemMessage":true}
+[2026-02-09T09:16:15.301Z] {"event":"client_connected","clientId":"Client6","clients":2,"ip":"::1"}
+[2026-02-09T09:16:15.331Z] {"id":"Client6-1770628575331","clientId":"Client6","name":"Client6","message":"Client6 joined the chat","timestamp":"2026-02-09T09:16:15.331Z","isSystemMessage":true}
+[2026-02-09T09:16:22.484Z] {"event":"client_disconnected","clients":1}
+[2026-02-09T09:16:24.627Z] {"event":"client_disconnected","clients":0}

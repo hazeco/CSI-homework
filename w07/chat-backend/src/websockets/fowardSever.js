@@ -22,52 +22,65 @@ function logMessage(message) {
 const forwardServer = createServer();
 
 //create websocket server with CORS
-const wss = new WebSocketServer({ 
+const wss = new WebSocketServer({
   server: forwardServer,
   perMessageDeflate: false,
 });
 
+// Global client ID counter
+let clientIdCounter = 0;
+
 // listen wss
 wss.on('listening', () => {
-    console.log(`[Forward Server,  ${wss.clients.size}] - listening`);
-    logMessage({ event: 'server_listening', clients: wss.clients.size });
+  console.log(`[Forward Server,  ${wss.clients.size}] - listening`);
+  logMessage({ event: 'server_listening', clients: wss.clients.size });
 });
 
 // connection
 wss.on('connection', (ws, req) => {
-    console.log(`[Forward Server,  ${wss.clients.size}] - client connected`);
-    logMessage({ event: 'client_connected', clients: wss.clients.size, ip: req.socket.remoteAddress });
-    
-    //message arrival
-    ws.on('message', (message) => {
-        const messageString = message.toString();
-        console.log(`[Forward Server,  ${wss.clients.size}] - received ${messageString}`);
-        
-        try {
-          const parsedMsg = JSON.parse(messageString);
-          logMessage(parsedMsg);
-        } catch (e) {
-          logMessage({ event: 'raw_message', data: messageString });
-        }
+  // Assign sequential client ID
+  clientIdCounter++;
+  ws.clientId = `Client${clientIdCounter}`;
 
-        //forward message to all clients
-        wss.clients.forEach((client) => {
-            if (client.readyState === 1) {
-                client.send(messageString);
-                console.log(`[Forward Server,  ${wss.clients.size}] - forwarded ${messageString}`);
-            }
-        });
-    });
+  console.log(`[Forward Server,  ${wss.clients.size}] - client connected as ${ws.clientId}`);
+  logMessage({ event: 'client_connected', clientId: ws.clientId, clients: wss.clients.size, ip: req.socket.remoteAddress });
 
-    ws.on('close', () => {
-        console.log(`[Forward Server,  ${wss.clients.size}] - closed`);
-        logMessage({ event: 'client_disconnected', clients: wss.clients.size });
-    });
+  // Send assigned client ID to the new client
+  ws.send(JSON.stringify({
+    type: 'CLIENT_ID_ASSIGNED',
+    clientId: ws.clientId
+  }));
 
-    ws.on('error', (error) => {
-        console.error(`[Forward Server] - error:`, error);
-        logMessage({ event: 'error', message: error.message });
+  //message arrival
+  ws.on('message', (message) => {
+    const messageString = message.toString();
+    console.log(`[Forward Server,  ${wss.clients.size}] - received ${messageString}`);
+
+    try {
+      const parsedMsg = JSON.parse(messageString);
+      logMessage(parsedMsg);
+    } catch (e) {
+      logMessage({ event: 'raw_message', data: messageString });
+    }
+
+    //forward message to all clients
+    wss.clients.forEach((client) => {
+      if (client.readyState === 1) {
+        client.send(messageString);
+        console.log(`[Forward Server,  ${wss.clients.size}] - forwarded ${messageString}`);
+      }
     });
+  });
+
+  ws.on('close', () => {
+    console.log(`[Forward Server,  ${wss.clients.size}] - closed`);
+    logMessage({ event: 'client_disconnected', clients: wss.clients.size });
+  });
+
+  ws.on('error', (error) => {
+    console.error(`[Forward Server] - error:`, error);
+    logMessage({ event: 'error', message: error.message });
+  });
 });
 
 export default forwardServer;

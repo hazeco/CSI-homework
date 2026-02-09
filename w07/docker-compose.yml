@@ -1,0 +1,20 @@
+version: '0.1'
+
+services:
+  backend:
+    build: ./chat-backend
+    image: chat-backend
+    container_name: chat-backend-image
+    ports: 
+      - "3000:3000" #<PC Port>:<Container Port>
+    environment:
+      - NODE_ENV=development
+  
+  frontend:
+    build: ./chat-frontend
+    image: chat-frontend
+    container_name: chat-frontend-image
+    ports:
+      - "80:80" #<PC Port>:<Container Port>
+    depends_on:
+      - backend # backend run first

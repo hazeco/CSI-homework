@@ -1,15 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 
-// Get or initialize counter from localStorage (shared across all tabs in same browser)
-function getNextClientId() {
-  const currentCount = parseInt(localStorage.getItem('__globalClientCounter') || '0')
-  const nextCount = currentCount + 1
-  localStorage.setItem('__globalClientCounter', nextCount.toString())
-  return `Client${nextCount}`
-}
-
 function Chat() {
-  const [clientId] = useState(() => getNextClientId())
+  const [clientId, setClientId] = useState(null)
   const [clientName, setClientName] = useState('')
   const [message, setMessage] = useState('')
   const [messages, setMessages] = useState([])
@@ -21,51 +13,47 @@ function Chat() {
 
   // Initialize client name and connect to WebSocket
   useEffect(() => {
-    setClientName(clientId)
     messageRef.current?.focus()
 
     // Connect to WebSocket forwardServer
     const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:'
     const wsUrl = `${protocol}//${window.location.hostname}:3003`
     
-    console.log(`[${clientId}] Connecting to WebSocket:`, wsUrl)
+    console.log(`[Connecting] to WebSocket:`, wsUrl)
     const ws = new WebSocket(wsUrl)
 
     ws.onopen = () => {
-      console.log(`[${clientId}] WebSocket connected to forwardServer`)
+      console.log(`[WebSocket] Connected to forwardServer`)
       setIsConnected(true)
-      // Send initial connection message
-      const connectionMsg = {
-        id: `${clientId}-${Date.now()}`,
-        clientId: clientId,
-        name: clientId,
-        message: `${clientId} joined the chat`,
-        timestamp: new Date().toISOString(),
-        isSystemMessage: true,
-      }
-      ws.send(JSON.stringify(connectionMsg))
     }
 
     ws.onmessage = (event) => {
-      console.log(`[${clientId}] Received from server:`, event.data)
+      console.log(`[WebSocket] Received from server:`, event.data)
       try {
         const incomingMsg = JSON.parse(event.data)
-        // Only add message if it's not from ourselves (since we already added it when sending)
-        if (incomingMsg.clientId !== clientId) {
-          setMessages((prevMessages) => [...prevMessages, incomingMsg])
+        
+        // Handle server-assigned client ID
+        if (incomingMsg.type === 'CLIENT_ID_ASSIGNED') {
+          console.log(`[ClientID] Assigned as ${incomingMsg.clientId}`)
+          setClientId(incomingMsg.clientId)
+          setClientName(incomingMsg.clientId)
+          return
         }
+        
+        // Add all messages from server (single source of truth)
+        setMessages((prevMessages) => [...prevMessages, incomingMsg])
       } catch (e) {
         console.error('Error parsing message:', e)
       }
     }
 
     ws.onerror = (error) => {
-      console.error(`[${clientId}] WebSocket error:`, error)
+      console.error(`[WebSocket] error:`, error)
       setIsConnected(false)
     }
 
     ws.onclose = () => {
-      console.log(`[${clientId}] WebSocket disconnected from forwardServer`)
+      console.log(`[WebSocket] disconnected from forwardServer`)
       setIsConnected(false)
     }
 
@@ -76,15 +64,31 @@ function Chat() {
         wsRef.current.close()
       }
     }
-  }, [clientId])
+  }, [])
 
   // Auto scroll to bottom
   useEffect(() => {
     displayRef.current?.scrollTo(0, displayRef.current.scrollHeight)
   }, [messages])
 
+  // Send connection message when clientId is assigned
+  useEffect(() => {
+    if (clientId && wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
+      const connectionMsg = {
+        id: `${clientId}-${Date.now()}`,
+        clientId: clientId,
+        name: clientId,
+        message: `${clientId} joined the chat`,
+        timestamp: new Date().toISOString(),
+        isSystemMessage: true,
+      }
+      wsRef.current.send(JSON.stringify(connectionMsg))
+      console.log(`[${clientId}] Connection message sent`)
+    }
+  }, [clientId])
+
   const sendClick = () => {
-    if (message.trim() === '') return
+    if (!clientId || message.trim() === '') return
 
     const newMessage = {
       id: `${clientId}-${Date.now()}`,
@@ -94,8 +98,6 @@ function Chat() {
       timestamp: new Date().toISOString(),
       isSystemMessage: false,
     }
-
-    setMessages([...messages, newMessage])
 
     // Send message to WebSocket server
     if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
@@ -124,7 +126,7 @@ function Chat() {
           <div className="text-2xl flex-shrink-0">💬</div>
           <div className="min-w-0">
             <h1 className="font-bold text-base truncate">Direct Messages</h1>
-            <p className="text-xs text-gray-500 truncate">{clientId}</p>
+            <p className="text-xs text-gray-500 truncate">{clientId || 'Connecting...'}</p>
           </div>
         </div>
         <div className={`w-2 h-2 rounded-full flex-shrink-0 ${isConnected ? 'bg-green-500' : 'bg-red-500'}`}></div>
