@@ -6,7 +6,9 @@ services:
     image: chat-backend
     container_name: chat-backend-image
     ports: 
-      - "3000:3000" #<PC Port>:<Container Port>
+      - "3001:3001" #<PC Port>:<Container Port>
+      - "3002:3002" #<PC Port>:<Container Port>
+      - "3003:3003" #<PC Port>:<Container Port>
     environment:
       - NODE_ENV=development
   

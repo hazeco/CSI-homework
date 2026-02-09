@@ -17,7 +17,8 @@ function Chat() {
 
     // Connect to WebSocket forwardServer
     const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:'
-    const wsUrl = `${protocol}//${window.location.hostname}:3003`
+    const host = window.location.hostname === 'localhost' ? 'backend' : window.location.hostname
+    const wsUrl = `${protocol}//${host}:3003`
     
     console.log(`[Connecting] to WebSocket:`, wsUrl)
     const ws = new WebSocket(wsUrl)
