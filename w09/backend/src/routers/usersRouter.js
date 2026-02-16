@@ -9,15 +9,16 @@ const usersRouter = Router()
 usersRouter.post('/register', async (req, res) => {
     // (user, pass, roleId) -> database
     // extract data from req.body
-    const { username, password, roleId } = req.body
+    const { username, password, role_id } = req.body
     // validate
     
     // process
     try {
-        await createUser(username, password, roleId)
+        await createUser(username, password, role_id)
         res.status(201).json({ message: "User created successfully" })
     } catch (error) {
-        res.status(500).json({ message: "Internal Server Error" })
+        console.log(error)
+        res.status(500).json({ message: "Internal Server Error", error: error.message })
     }
 });
 

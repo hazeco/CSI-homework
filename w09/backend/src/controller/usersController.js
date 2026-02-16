@@ -15,20 +15,21 @@ const config = {
     user: process.env.DB_USER,
     port: 3307,
     password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
 }
 
 
 const query = async (sql, params) => {
-    const connection = await mysql.createConnection(...config);
+    const connection = await mysql.createConnection(config);
     const [rows] = await connection.execute(sql, params);
     connection.end();
     return rows;
 }
 
-export const createUser = async (username, password, roleId) => {
+export const createUser = async (username, password, role_id) => {
     const encryptedPassword = await bcryptjs.hash(password, 10)
     const sql = 'INSERT INTO users (username, password, role_id) values (?, ?, ?)'
-    const params = [username, encryptedPassword, roleId]
+    const params = [username, encryptedPassword, role_id]
     const result = await query(sql, params)
     return result
 }
