@@ -2,7 +2,9 @@ import { Router } from "express";
 import {
     createUser,
     getUserByUsername,
-    getRoleNamebyUserId
+    getRoleNamebyUserId,
+    getAllUsers,
+    getUsersByRoleNames
 } from "../controller/usersController.js";
 import bcryptjs from 'bcryptjs';
 import jwt from 'jsonwebtoken';
@@ -69,9 +71,11 @@ const jwtTokenMiddleware = (req, res, next) => {
         if (err) {
             req.jwtExpried = true
             req.userId = null
+            req.roleId = null
         } else {
             req.jwtExpried = false
             req.userId = payload.id
+            req.roleId = payload.role_id
         }
     })
     next()
@@ -85,6 +89,34 @@ usersRouter.get('/verify', jwtTokenMiddleware, async (req, res) => {
     const result = await getRoleNamebyUserId(req.userId)
 
     res.status(200).json({ message: "Token is valid", role: result[0].role })
+})
+
+// list users -> role-based access
+// admin: see all users
+// manager: see only manager and worker
+// worker: forbidden
+usersRouter.get('/list', jwtTokenMiddleware, async (req, res) => {
+    if (req.jwtExpried) return res.status(401).json({ message: "token expried" })
+
+    // role_id: 1=admin, 2=manager, 3=worker
+    if (req.roleId === 3) {
+        return res.status(403).json({ message: "Unauthorized: Worker cannot access user list" })
+    }
+
+    try {
+        let users
+        if (req.roleId === 1) {
+            // Admin sees all users
+            users = await getAllUsers()
+        } else if (req.roleId === 2) {
+            // Manager sees only manager and worker
+            users = await getUsersByRoleNames(['manager', 'worker'])
+        }
+        res.status(200).json({ users })
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ message: "Internal Server Error", error: error.message })
+    }
 })
 
 export default usersRouter

@@ -46,3 +46,16 @@ export const getRoleNamebyUserId = async (id) => {
     const result = await query(sql, params)
     return result
 }
+
+export const getAllUsers = async () => {
+    const sql = 'SELECT users.id, users.username, roles.name AS role FROM users JOIN roles ON users.role_id = roles.id ORDER BY users.id'
+    const result = await query(sql, [])
+    return result
+}
+
+export const getUsersByRoleNames = async (roleNames) => {
+    const placeholders = roleNames.map(() => '?').join(', ')
+    const sql = `SELECT users.id, users.username, roles.name AS role FROM users JOIN roles ON users.role_id = roles.id WHERE roles.name IN (${placeholders}) ORDER BY users.id`
+    const result = await query(sql, roleNames)
+    return result
+}

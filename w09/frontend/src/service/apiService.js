@@ -10,8 +10,7 @@ export const login = async (username, password) => {
         });
         return response.data;
     } catch (error) {
-        console.error(error);
-        throw error;
+        throw error.response?.data || error;
     }
 }
 
@@ -38,7 +37,19 @@ export const register = async (username, password, role_id) => {
         });
         return response.data;
     } catch (error) {
-        console.error(error);
-        throw error;
+        throw error.response?.data || error;
+    }
+}
+
+export const getUsers = async (token) => {
+    try {
+        const response = await axios.get(`${API_URL}/users/list`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+        return response.data;
+    } catch (error) {
+        throw error.response?.data || error;
     }
 }
