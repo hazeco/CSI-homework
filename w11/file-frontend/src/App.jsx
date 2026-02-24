@@ -12,9 +12,9 @@ function App() {
           <p className="text-slate-500 mt-2 text-sm">Upload and download your files easily</p>
         </div>
 
-        {/* Mobile (flex-col-reverse): Upload top, Download bottom */}
-        {/* PC md+ (flex-col): Download top, Upload bottom */}
-        <div className="flex flex-col-reverse md:flex-col gap-6">
+        {/* Mobile (flex-col): Download top, Upload bottom */}
+        {/* PC md+ (flex-col-reverse): Upload top, Download bottom */}
+        <div className="flex flex-col md:flex-col-reverse gap-6">
           <Download />
           <Upload />
         </div>

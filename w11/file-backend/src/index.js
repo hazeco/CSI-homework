@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import multer from "multer";
 import fileRouter from "./routers/fileRouter.js";
 
 const HOST = "localhost";
@@ -10,7 +11,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use('/shared',express.static("./public"));
+app.use('/shared', express.static("./public"));
 app.use('/files', fileRouter);
 
 app.listen(PORT, HOST, () => {
