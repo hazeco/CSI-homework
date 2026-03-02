@@ -1,6 +1,6 @@
-import './App.css'
-import Download from './components/Dowload'
-import Upload from './components/Upload'
+import "./App.css";
+import Download from "./components/Dowload";
+import Upload from "./components/Upload";
 
 function App() {
   return (
@@ -8,19 +8,22 @@ function App() {
       <div className="w-full">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-slate-800 tracking-tight">File Manager</h1>
-          <p className="text-slate-500 mt-2 text-sm">Upload and download your files easily</p>
+          <h1 className="text-3xl md:text-4xl font-bold text-slate-800 tracking-tight">
+            File Manager
+          </h1>
+          <p className="text-slate-500 mt-2 text-sm">
+            Upload and download your files easily
+          </p>
         </div>
 
-        {/* Mobile (flex-col): Download top, Upload bottom */}
-        {/* PC md+ (flex-col-reverse): Upload top, Download bottom */}
-        <div className="flex flex-col md:flex-col-reverse gap-6">
+        {/* Mobile and PC: Download top, Upload bottom */}
+        <div className="flex flex-col gap-6">
           <Download />
           <Upload />
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
