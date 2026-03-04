@@ -47,8 +47,13 @@ const Upload = () => {
         inputRef.current.value = "";
       }, 2000);
     } catch (error) {
-      setStatus("error");
-      console.error("Upload failed:", error);
+      if (axios.isCancel(error)) {
+        // Request was cancelled by the user — reset silently
+        setStatus("idle");
+      } else {
+        setStatus("error");
+        console.error("Upload failed:", error);
+      }
     }
   };
 

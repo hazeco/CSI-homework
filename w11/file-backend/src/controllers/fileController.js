@@ -25,11 +25,22 @@ export const uploadFile = async (req, res) => {
     const [filename, extension] = req.file.originalname.split('.')
     const newFileName = `${filename}-${Date.now()}.${extension}`
 
-
-    // Move the file to the public directory with the new name
     const oldPath = req.file.path
     const newPath = `./public/${newFileName}`
 
+    // Client already aborted before we could rename — delete temp file
+    if (req.clientAborted) {
+        await fs.unlink(oldPath)
+        return
+    }
+
     await fs.rename(oldPath, newPath)
+
+    // Client aborted during rename — delete the renamed file
+    if (req.clientAborted) {
+        await fs.unlink(newPath)
+        return
+    }
+
     res.status(200).json({ message: 'file uploaded successfully' })
 }

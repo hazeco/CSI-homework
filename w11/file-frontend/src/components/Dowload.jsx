@@ -28,13 +28,20 @@ const Download = () => {
   const [files, setFiles] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/files/list')
-      .then(res => {
-        setFiles(res.data.files);
-      })
-      .catch(err => {
-        console.error(err);
-      });
+    const fetchFiles = () => {
+      axios.get('http://localhost:3000/files/list')
+        .then(res => {
+          setFiles(res.data.files || []);
+        })
+        .catch(err => {
+          console.error(err);
+        });
+    };
+
+    fetchFiles(); // initial load
+    const interval = setInterval(fetchFiles, 5000); // auto-reload every 5s
+
+    return () => clearInterval(interval); // cleanup on unmount
   }, []);
 
   return (
