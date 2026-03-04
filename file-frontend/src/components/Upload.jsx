@@ -5,14 +5,14 @@ let currentUpload = null; // To track the current upload request
 
 const Upload = () => {
   const [fileName, setFileName] = useState("");
-  const [progress, setProgress] = useState(0);
+  const progressRef = useRef(0);
   const [status, setStatus] = useState("idle"); // idle | uploading | done | error
   const inputRef = useRef();
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) setFileName(file.name);
-    setProgress(0);
+    progressRef.current = 0;
     setStatus("idle");
   };
 
@@ -30,17 +30,19 @@ const Upload = () => {
         cancelToken: currentUpload.token,
         onUploadProgress: (event) => {
           if (event.lengthComputable) {
-            setProgress(Math.round((event.loaded / event.total) * 100));
+            progressRef.current = Math.round(
+              (event.loaded / event.total) * 100,
+            );
           }
         },
       });
 
-      setProgress(100);
+      progressRef.current = 100;
       setStatus("done");
 
       setTimeout(() => {
         setFileName("");
-        setProgress(0);
+        progressRef.current = 0;
         setStatus("idle");
         inputRef.current.value = "";
       }, 2000);
@@ -60,7 +62,7 @@ const Upload = () => {
       currentUpload.cancel("Upload cancelled by user");
     }
     setFileName("");
-    setProgress(0);
+    progressRef.current = 0;
     setStatus("idle");
     inputRef.current.value = "";
   };
@@ -85,9 +87,10 @@ const Upload = () => {
               fill="currentColor"
               viewBox="0 0 20 20"
             >
+              <path d="M5 4a2 2 0 012-2h6a1 1 0 00-.82-.45l-.backing 1.79A1 1 0 0012 4h2a2 2 0 012 2v12a2 2 0 01-2 2H7a2 2 0 01-2-2V4z" />
               <path
                 fillRule="evenodd"
-                d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z"
+                d="M4.5 6.5a1 1 0 00-1 1v7a1 1 0 001 1h11a1 1 0 001-1v-7a1 1 0 00-1-1h-11zM4 9.414V8.5a.5.5 0 01.5-.5h11a.5.5 0 01.5.5v.914M6 12a1 1 0 100-2 1 1 0 000 2zm.282-4.282a1 1 0 000 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L10 10.586l-2.282-2.282a1 1 0 00-1.414 0z"
                 clipRule="evenodd"
               />
             </svg>
@@ -132,7 +135,7 @@ const Upload = () => {
         className="mt-4 w-full py-2.5 rounded-xl font-semibold text-white bg-blue-500 hover:bg-blue-600 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
       >
         {status === "uploading"
-          ? `Uploading… ${progress}%`
+          ? `Uploading… ${progressRef.current}%`
           : status === "done"
             ? "✓ Uploaded!"
             : "Upload"}
@@ -150,7 +153,7 @@ const Upload = () => {
       {status !== "idle" && (
         <div className="mt-3">
           <progress
-            value={progress}
+            value={progressRef.current}
             max="100"
             className="w-full h-2 rounded-full"
           />

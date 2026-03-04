@@ -1,26 +1,19 @@
 import { Router } from 'express'
 import multer from 'multer'
 import fs from 'node:fs'
-import { listFiles, uploadFile, deleteFile } from '../controllers/fileController.js'
+import { listFiles, uploadFile } from '../controllers/fileController.js'
 
 const fileRouter = Router()
-
-// Ensure upload directory exists
-if (!fs.existsSync('./public')) {
-    fs.mkdirSync('./public', { recursive: true })
-}
-
 const upload = multer({ dest: './public' })
 
 // api
 fileRouter.get('/list', listFiles)
-fileRouter.delete('/delete/:filename', deleteFile)
 
 fileRouter.post('/upload',
     // Step 1: Mark aborted flag and listen for client disconnect
     (req, res, next) => {
         req.clientAborted = false
-        req.on('aborted', () => {
+        req.on('close', () => {
             req.clientAborted = true
             // If multer already saved a temp file, delete it immediately
             if (req.file) {

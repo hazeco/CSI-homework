@@ -1,5 +1,4 @@
 import fs from 'node:fs/promises'
-import path from 'node:path'
 
 // List all files
 export const listFiles = async (req, res) => {
@@ -23,16 +22,15 @@ export const listFiles = async (req, res) => {
 export const uploadFile = async (req, res) => {
     if (!req.file) return res.status(400).json({ message: 'no file uploaded' })
     // filename extension check
-    const ext = path.extname(req.file.originalname)
-    const basename = path.basename(req.file.originalname, ext)
-    const newFileName = `${basename}-${Date.now()}${ext}`
+    const [filename, extension] = req.file.originalname.split('.')
+    const newFileName = `${filename}-${Date.now()}.${extension}`
 
     const oldPath = req.file.path
     const newPath = `./public/${newFileName}`
 
     // Client already aborted before we could rename — delete temp file
     if (req.clientAborted) {
-        await fs.unlink(oldPath).catch(() => {})
+        await fs.unlink(oldPath)
         return
     }
 
@@ -40,21 +38,9 @@ export const uploadFile = async (req, res) => {
 
     // Client aborted during rename — delete the renamed file
     if (req.clientAborted) {
-        await fs.unlink(newPath).catch(() => {})
+        await fs.unlink(newPath)
         return
     }
 
     res.status(200).json({ message: 'file uploaded successfully' })
-}
-
-// Delete file
-export const deleteFile = async (req, res) => {
-    const { filename } = req.params
-    const filePath = `./public/${filename}`
-    try {
-        await fs.unlink(filePath)
-        res.status(200).json({ message: 'file deleted successfully' })
-    } catch (err) {
-        res.status(404).json({ message: 'file not found' })
-    }
 }

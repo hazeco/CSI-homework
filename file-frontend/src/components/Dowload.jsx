@@ -26,20 +26,6 @@ const fileIcon = (name) => {
 const Download = () => {
 
   const [files, setFiles] = useState([]);
-  const [deleting, setDeleting] = useState(null);
-
-  const handleDelete = async (filename) => {
-    if (!confirm(`ลบไฟล์ "${filename}" ใช่หรือไม่?`)) return;
-    setDeleting(filename);
-    try {
-      await axios.delete(`http://localhost:3000/files/delete/${encodeURIComponent(filename)}`);
-      setFiles((prev) => prev.filter((f) => f.name !== filename));
-    } catch (err) {
-      console.error('Delete failed:', err);
-    } finally {
-      setDeleting(null);
-    }
-  };
 
   useEffect(() => {
     const fetchFiles = () => {
@@ -92,23 +78,14 @@ const Download = () => {
                   {file.name}
                 </span>
               </a>
-              <div className="ml-3 shrink-0 flex items-center gap-2">
-                <a
-                  href={file.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-1.5 text-xs font-semibold text-emerald-600 bg-emerald-50 hover:bg-emerald-100 px-3 py-1.5 rounded-lg transition-colors"
-                >
-                  &darr; Download
-                </a>
-                <button
-                  onClick={() => handleDelete(file.name)}
-                  disabled={deleting === file.name}
-                  className="flex items-center gap-1.5 text-xs font-semibold text-red-500 bg-red-50 hover:bg-red-100 px-3 py-1.5 rounded-lg transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-                >
-                  {deleting === file.name ? '...' : '🗑 Delete'}
-                </button>
-              </div>
+              <a
+                href={file.url}
+                target="_blank"
+                rel="noreferrer"
+                className="ml-3 shrink-0 flex items-center gap-1.5 text-xs font-semibold text-emerald-600 bg-emerald-50 hover:bg-emerald-100 px-3 py-1.5 rounded-lg transition-colors"
+              >
+                &darr; Download
+              </a>
             </li>
           ))}
         </ul>
